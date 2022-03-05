@@ -1,0 +1,168 @@
+body{
+    background-color : rgb(22, 35, 39);
+    color :rgb(107, 187, 211);
+    font-size: 12px;
+}
+#title{
+    text-align : center;
+    color : rgb(255, 255, 255);
+    text-shadow: -1px 1px 0 rgb(180, 166, 241);
+    font-size : 24px;
+}
+t{
+    color : rgb(137, 241, 255);
+    font-size: 14px;
+}
+
+#emergencyStop{
+    position : absolute;
+    padding : none;
+    border : none;
+    right : 0;
+    top : 0;
+}
+#emergencyStopButton{
+    width : 40px;
+    height : 40px;
+    padding : none;
+    border : 1px solid white;
+    border-radius : 20px;
+    font-size : 9px;
+    background-color : red;
+    color : white;
+    transition-duration : 0.1s;
+}
+#emergencyStopButton:hover{
+    font-size : 10px;
+    background-color : rgb(255, 127, 127);
+    color : rgb(0, 0, 0);
+    transition-duration : 0.2s;
+}
+#emergencyStopButton:active{
+    font-size : 8px;
+    background-color : darkred;
+    color : red;
+}
+
+.line{
+    width : 300px;
+}
+.line#cyan{
+    width : 300px;
+    border-top : 1px solid #91dae4;
+    border-bottom : none;
+}
+#lineTitle{
+    border : 1px solid rgb(255, 255, 255);
+}
+
+
+#mainArea{
+    text-align : center;
+}
+#speakerChoices{
+    width : 200px;
+    font-size : 12px;
+    color : lime;
+    background-color : darkblue;
+}
+#options{
+    background-color : #001881;
+    border : solid #91dae4 1px;
+    padding : 2px;
+}
+#optionSelection{
+    border-top : solid #91dae4 1px;
+    width : 100%;
+}
+.inline{
+    display : inline-block;
+}
+
+#overlay{
+    display : block;
+    position : absolute;
+    width : 100%;
+    height : 100%;
+    left : 0;
+    top : 0;
+    background-color : rgba(255, 255, 255, 0.75);
+}
+#overlayText{
+    margin : auto;
+    margin-top : 45%;
+    font-size : 20px;
+    color : black;
+}
+
+#highlight{
+    border : solid #91dae4 1px;
+}
+
+#textchat{
+    border : solid #91dae4 1px;
+    border-top : none;
+    padding : 2px;
+}
+#settings{
+    position : relative;
+}
+
+.whiteBlackListText{
+    width : 120px;
+    font-size : 12px;
+    color : darkblue;
+    background-color : rgb(172, 255, 172);
+    outline : none;
+}
+.whiteBlackListSelection{
+    width : 125px;
+    font-size : 12px;
+    color : lime;
+    background-color : darkblue;
+}
+#highlightSelection{
+    width : 250px;
+    font-size : 12px;
+    color : lime;
+    background-color : darkblue;
+}
+
+
+.button{
+    background-color : rgb(0, 0, 0);
+    width : 100px;
+    height : 35px;
+}
+.button:enabled{
+    color : rgba(172, 255, 47, 0.685);
+    border-width : 6px;
+    border-radius : 6px;
+    transition-duration : 0.1s;
+}
+.button:hover:enabled {
+    color : greenyellow;
+    border-width : 7px;
+}
+.button:disabled{
+    color : rgba(202, 74, 74, 0.685);
+    border-width : 2px;
+    border-radius : 2px;
+    transition-duration : 0s;
+}
+.button:hover:disabled{
+    color : red;
+}
+.button.stop{
+    color : red;
+    border-radius : 50%;
+    width : 50px;
+    height : 50px;
+    outline : none;
+    border-width : 4px;
+    transition-duration : 0.1s;
+}
+.button.stop:hover{
+    color : rgb(255, 128, 128);
+    border-width : 5px;
+}

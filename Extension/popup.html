@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="audioSetup.js"></script>
+    <script src="popup.js"></script>
+    <link rel="stylesheet" href="popup.css">
+    <title>TTS Extension</title>
+  </head>
+  <body>
+    <div id="title">
+      TTS Extension
+    </div>
+    <div id="emergencyStop">
+      <button id="emergencyStopButton"><b>STOP</b></button>
+    </div>
+    <hr id="lineTitle" class="line">
+    <div>
+      <div id="mainArea">
+
+        <div id="server">
+          Server:
+          <t id="serverConnection">Checking Status...</t>
+        </div>
+        <div id="speaker">
+          Speaker:
+          <select id="speakerChoices"></select>
+        </div>
+
+        <div id="options">
+          <div id="textchat">
+            
+            <t id="chatPresetCheck">Checking URL...</t>
+            <hr class="line" id="cyan">
+            <div id="settings">
+              <div id="overlay">
+                <div id="overlayText">
+                  <b>Awaiting Connection...</b>
+                </div>
+              </div>
+              <t id="isObserving">Not Observing.</t>
+              <br>
+              <button id="observe" class="button">Start</button>
+              <button id="stopObserve" class="button stop">Stop</button>
+              <br>
+  
+              <hr class="line" id="cyan">
+              <t id="observeStatus"></t>
+              Auto Speak: 
+              <input id="autoSpeak" type='checkbox'>
+              <br>
+              Speak Buttons: 
+              <input id="speakButtons" type='checkbox'>
+              <br>
+              Say who(name) said: 
+              <input id="addNameSaid" type='checkbox'>
+              <br>
+              Don't repeat same continuous text: 
+              <input id="suppressSameText" type='checkbox'>
+              <br>
+              <hr class="line" id="cyan">
+              <div>
+                <b>Use Whitelist: </b>
+                <input id="useWhiteBlackList" type='checkbox'>
+                <br>
+                <t>Whitelist</t>
+                <br>
+                
+                <div id="whiteBlackListContainer">
+                  <div class="whiteBlackListPerson">
+                    <input class="whiteBlackListText" type="text">
+                    <select class="whiteBlackListSelection" value="Default">
+                      <option value="Default">Default</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div id="highlight">
+                <t>Highlight Text Popup</t>
+                <br>
+                <select id="highlightSelection" value="Default">
+                  
+                </select>
+                <button id="startHighlight" class="button">Activate</button>
+                <button id="stopHighlight" class="button stop">Stop</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{
+
+    "manifest_version": 2,
+    "name": "TTS Extension",
+    "description": "Converts texts into text-to-speech",
+    "version": "1.0",
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "web_accessible_resources": [
+        "speakicon.png",
+        "speakfloaticon.png"
+    ],
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "icons": {
+        "100" : "Squawk.png"
+    }
+   
+}
