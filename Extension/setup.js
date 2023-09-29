@@ -63,6 +63,7 @@ if (typeof hasSetup == 'undefined'){
         else{
             speak = text;
         }
+        
         socket.send(speak);
 
     }

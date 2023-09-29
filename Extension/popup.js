@@ -363,44 +363,8 @@ deepSearchForName : true - Finds the name if undefined, by traversing from the f
 const ChatPresets = [
     ["meet.google.com", "z38b6", "YTbUzc", "oIy2qc",
         {
-            'textOnlyIs' : true,
-            //'textIgnoreIfIs' : {
-            //    "oIy2qc gYckH" : true
-            //},
-            'deepSearchForName' : true,
         }
-    ],
-    ["app.roll20.net", "content", "by", "message",
-        {
-            'putButtonInTargetNode' : true,
-            'textIsAtRoot' : true,
-            'textIgnoreIfIs' : {
-                'message system' : true,
-                'message error' : true,
-                'message private whisper' : true,
-            },
-            'textIgnoreIfContain' : {
-                'sheet-rolltemplate-atkdmg' : true,
-                'sheet-rolltemplate-simple' : true,
-                'sheet-rolltemplate-default' : true,
-                'sheet-rolltemplate-npcaction' : true,
-                'sheet-rolltemplate-traits' : true,
-                'sheet-rolltemplate-spelloutput' : true,
-                'sheet-rolltemplate-spell' : true,
-                'formula' : true
-            },
-            'textIgnoreAutoSpeakIfIs' : {
-                'message emote' : true,
-            },
-            'nameSplitIf' : {
-                'message emote' : ':',
-            },
-            'nameRemove' : ':',
-            'textPlainTextOnly' : true,
-            'deepSearchForName' : true,
-            //'lookForNameInTextClass' : true
-        }
-    ],
+    ]
 ];
 Object.freeze(ChatPresets);
 

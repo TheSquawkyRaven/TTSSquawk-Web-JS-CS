@@ -30,6 +30,7 @@ function SetupPopup(){
 
     popup.addEventListener('click', function(){
         if (sayingText){
+            console.log("Highlight: " + sayingText)
             if (defaultVoice){
                 Send(sayingText);
             }

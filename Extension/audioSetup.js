@@ -86,6 +86,7 @@ var savedAudio = {};
 function LoadSavedAudioData(){
     chrome.storage.local.get(['speakerIDs'], function(result) {
         if (result == null || !result.speakerIDs){
+            UpdateAudioDeviceInContent()
             return;
         }
         savedAudio = result.speakerIDs;

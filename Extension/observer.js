@@ -12,19 +12,37 @@ var StopObserver = function() {
 }
 StopObserver();
 
+
+let speakingName = ""
+let lastSpeakingText = ""
 var observer;
 function SetupObserver(){
     observer = new MutationObserver(function(mutations) {
+
+        let text = ""
         mutations.forEach(function(mutation) {
             nodes = mutation.addedNodes;
+
+
             for (var i = 0; i < nodes.length; i++){
                 var node = nodes[i];
                 if (!(node instanceof HTMLElement)){
                     continue;
                 }
-                CheckNode(node);
+                //CheckNode(node);
+
+                if (node.classList.contains(nameClass)){
+                    console.warn("Name: " + node.textContent)
+                    speakingName = node.textContent
+                }
+                if (node.classList.contains(textClass)){
+                    console.warn("Text: " + node.textContent)
+                    text = node.textContent
+                }
             }
         });
+
+        SpeakObserved(speakingName, text)
     });
 }
 
@@ -47,15 +65,54 @@ var autoSpeak = true;
 var buttonInsert;
 var nameForButton;
 var textForButton;
+
+function SpeakObserved(name, text) {
+    if (text == ""){
+        return
+    }
+    if (speakingOptionDict['suppressSameText'] && text == lastSpeakingText){
+        console.log("Suppressed " + text);
+        return;
+    }
+    lastSpeakingText = text
+    if (name != "") {
+        name += " said: "
+    }
+    let speech = "";
+    if (speakingOptionDict['addNameSaid']){
+        speech = name;
+    }
+    speech += text
+    console.log("Observed: " + speech)
+
+    Speak(speech)
+}
+
+
+
+
+function Speak(text){
+    
+    if (text){
+        //console.log("Speaking " + text);
+        Send(text, voice);
+        //socket.send(text);
+    }
+
+}
+
+
+
 function CheckNode(node){
     FindContent(node);
     
     if (skipThis){
+        console.log("Skipping")
         return;
     }
     //console.log(node);
     if (speakingOptionDict['suppressSameText'] && CheckSameText()){
-        //console.log("Suppressed " + text);
+        console.log("Suppressed " + text);
         return;
     }
     
@@ -106,15 +163,18 @@ function FindContent(node){
     autoSpeak = true;
     TextIgnoreIfIs(node);
     if (skipThis){
+        console.log("TextIgnoreIfIs")
         return;
     }
     FindName(node);
     if (skipThis){
+        console.log("FindName")
         return;
     }
     DeepSearchForName();
     NameInList();
     if (skipThis){
+        console.log("NameInList")
         return;
     }
     FindText(node);
@@ -196,22 +256,6 @@ function GetPlainText(node){
     }
     return text;
 }
-function FindName(node){
-    if (node.className == nameClass){
-        pName = node.textContent;
-    }
-    else{
-        let nameNode = node.getElementsByClassName(nameClass);
-        if (nameNode.length > 0){
-            nameNode = nameNode[nameNode.length - 1];
-            if (nameNode != null){
-                pName = nameNode.textContent;
-            }
-        }
-    }
-    nameForButton = pName;
-    NameRemove();
-}
 function FindText(node){
     buttonInsert = node;
     let textNode = node;
@@ -223,7 +267,13 @@ function FindText(node){
 
     }
     else{
-        textNode = node.getElementsByClassName(textClass)[0];
+        // console.log("Getting Text Node from Node:")
+        // console.log(node)
+        textNode = node.querySelector("div");
+        // console.log("Text Node:")
+        // console.log(textNode)
+        // console.log("Test Fetch")
+        // console.log(node.textContent)
     }
     if (textNode != null){
         if (filter['textOnlyIs'] && textNode.className != textClass){
@@ -253,6 +303,7 @@ function FindText(node){
         }
         else{
             targetText = textNode.textContent;
+            console.log(targetText)
         }
 
         buttonInsert = textNode;
@@ -261,6 +312,7 @@ function FindText(node){
         return;
     }
     skipThis = true;
+    console.log("Text Node Null")
     return;
 }
 function NameInList(){
@@ -332,16 +384,6 @@ function ButtonSpeak(name, text){
 }
 
 
-
-function Speak(text){
-
-    if (text){
-        //console.log("Speaking " + text);
-        Send(text, voice);
-        //socket.send(text);
-    }
-
-}
 function CheckSameText(){
     return lastText == text;
 }
