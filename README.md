@@ -1,25 +1,62 @@
-Youtube Demo: https://youtu.be/dMTg3XHAHH0
+# TTS Squawk
 
-The server requires System.Speech and MimeMapping packages. Both are available on NuGet
+TTS Squawk is a browser extension paired with a server that converts chat messages sent on Google Meet into speech (Text to speech), with the ability to play directly into a selected speaker.
 
-Note to self : The extension uses manifest version 2.0. Chrome will be deprecating this version in 2023. Remember to update to 3.0.
+### Features
 
-Instructions to <b>Run</b>
-1. Download the project code in a zip file.
-2. Unpack the zip.
-3. Go to Chrome -> Extensions / Manage Extensions.
-4. Click Load Unpacked. If this is an update, replace the files and click on the Update button.
-5. Browse to the extracted folder and select the 'Extension' folder.
-6. Run the TTSSquawk.exe file in 'Server Build'.
-7. Open a Google Meet meeting.
-8. Open up the chat
-9. Open the extension
-10. Select an audio speaker. Using VB-Cable in this option and selecting VB-Output as mic in Meet works.
-11. Tick 'Auto Speak'. This will automatically speak as soon as a chat is sent/received. (Enable this first for testing purposes)
-12. Click Start
-13. Type some things into chat and hit send. Make sure the correct speaker is selected. If VB-Cable is used, you can go to your Windows Sounds and enable 'Listen to this device' in VB-Output properties.
+* Whitelist/blacklist system to filter out specific people in chat.
+* Ability to choose any available voice on a Windows system supported by the Speech library.
+* Choose a specific speaker to output the voice, in which using [VB-Cable](https://vb-audio.com/Cable/) can channel the voice output into a microphone device.
+* Auto conversion of text typed into a voice in Google Meet as a microphone.
 
-Instructions to <b>Compile/Modify Code</b>
-1. The files in the 'Extension' folder can be edited directly. The 'Update' button in Extensions is not even needed if the manifest is not modified. But definitely refresh Google Meet since the script injection will have the old script running in the background. Note that this uses manifest 2.0! I will upgrade soon. Also I hope that after I've updated it, I remember to edit this Readme.
-2. For the server code, create a Visual Studio C# Console Application in any version. (Recommended .Net 6.0)
-3. Copy the 3 .cs files into the project and start working on it.
+### Video Demo
+
+[Youtube Demo](https://youtu.be/dMTg3XHAHH0)
+
+###### Why I made this
+
+TTS Squawk is a hobby project I made during the pandemic. Since most interactions are done through Google Meet at that time, along with microphone problems, and other people not reading chat, I made this to simulate a voice for what I type on the chat.
+
+### Built With
+
+Frontend:
+* HTML
+* JavaScript
+* CSS
+
+Backend:
+* C#
+* Windows Speech Library
+
+## Getting Started
+
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
+
+### Installation
+
+Extension
+1. Clone the repo.
+2. Go to the selected browser's extensions tab.
+3. Clone the repo
+   ```
+   git clone https://github.com/TheSquawkyRaven/TTSSquawk-Web-JS-CS.git
+   ```
+4. Enable Developer Mode.
+5. Click Load Unpacked. Select the folder:
+   ```
+   /Extension/
+   ```
+
+## Usage
+
+1. Get the server running. The exe file can be executed through the build.
+2. Open a Google Meet conference call.
+3. Ensure the chat is opened on the screen. _The chat window has to stay open for the extension to work._
+4. Open the extension.
+5. Set any configurations.
+6. Click Run or Observe.
+
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
