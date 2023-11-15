@@ -35,7 +35,6 @@ To get a local copy up and running follow these simple example steps.
 
 ### Installation
 
-Extension
 1. Clone the repo.
 2. Go to the selected browser's extensions tab.
 3. Clone the repo
@@ -57,6 +56,3 @@ Extension
 5. Set any configurations.
 6. Click Run or Observe.
 
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
